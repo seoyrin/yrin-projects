@@ -39,7 +39,6 @@ public class HomeController {
 	@RequestMapping(value = "/gofiletest.bp", method = RequestMethod.GET)
 	public String goFilePage(Model model) {
 
-		// git commit test is success !!!
 		return "test/fileTest";
 	}
 	
