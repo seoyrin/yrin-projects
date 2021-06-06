@@ -38,7 +38,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/gofiletest.bp", method = RequestMethod.GET)
 	public String goFilePage(Model model) {
-		//logger.info("�뙆�씪 �뾽濡쒕뱶�럹�씠吏�濡� �씠�룞�븯�뒗 �븿�닔 吏꾩엯! ");
 
 		return "test/fileTest";
 	}
