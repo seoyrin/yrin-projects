@@ -1,0 +1,286 @@
+★패키지, 클래스, 변수명 규칙 지키기★
+
+<05.29>
+개발환경 구축 
+	이클립스 설치
+	jdk8, tomcat 설정 -> 서버 실행
+	STS 설치 : market place에서 
+	Spring legacy project 생성
+		brownPoodle 
+		spring MVC Project 선택
+		패키지 이름 : com.brownpoodle.kosmobp
+	생성된 컨텍스트 설정
+		Dynamic Web Modeule 3.1
+		Java version 1.8
+		tomcat8.5
+	server.xml path 경로 '/'
+
+환경설정 
+	maven + spring 4.3.16 으로 변경 + 인코딩 : UTF-8
+	
+	pom.xml : 필요한 라이브러리 포팅
+	          java, spring 버전 지정
+			  mybatis, jdbc, oracle, 
+			  mail, json, fileupload, 
+			  log4j, Servlet, jstl, 
+			  Test, pom.xml error solution
+	server.xml : URLEncoding 
+	             <Context path="/">
+	context.xml : DBConnection 
+	web.xml : welcome파일 설정(index.jsp)
+	          <servlet>, <servlet-mapping>
+			  한글 인코딩 POST 방식에 적용 : UTF-8
+			  log4j 세팅 
+	spring-servlet.xml
+	root-context.xml
+	 
+	webapp/index.jsp
+
+log4j 사용 
+	log4j.properties 추가 
+	
+query 관련 패키지 추가 : Java Resources/src/main/resources 
+	mybatisconfig
+	mybatisquery
+	=>환경설정에서 부터 찾기 때문에 실행 전에 미리 만들어 놓아야 한다. 
+	
+test : src/main/webapp/WEB-INF/views/test
+	index.jsp
+	HomeController.java
+	hello.jsp
+	fileTest.jsp
+
+img 넣을 폴더
+	src/main/webapp/resources/img/
+	
+
+
+<05.30>
+패키지 생성
+	공통클래스 : src/main/java
+		com.brownpoodle.common
+			ChaebunUtils
+			CommonUtil
+			DateFormatUtils
+			FileReadUtil
+			FileRename
+			FileUploadUtil
+			GoogleMailAuth
+			GoogleMailSend
+			PasswordUtil
+	게시판 : src/main/java
+		com.brownpoodle.board.vo
+		com.brownpoodle.board.controller
+		com.brownpoodle.board.service
+		com.brownpoodle.board.dao
+		
+	쿼리문 : src/main/resources
+			
+DB 테이블 생성 : 게시판 + 좋아요(FK 해결되면 생성하기)
+
+공통클래스 : 채번은 db연결 필요
+
+
+
+<05.31>
+게시판 Insert
+	비즈니스 
+		BoardVO
+		BoardController
+		BoardService
+		BoardServiceImpl
+		BoardDAO
+		BoardDAOImpl
+	DB
+		mybatis-config.xml
+		board.xml
+	view 
+	    boardInsertForm.jsp
+		boardInsert.jsp
+=>BoardController 69 line 수정 필요★
+  view에서 가져온 file명을 rename했을 경우, 그 값을 db에 넣어줘야 하는데,
+  rename값을 return해주는 method가 없다.
+
+
+
+<06.01>
+게시판 Insert 
+	이미지 rename 값 가져와서 DB에 넣기 
+		BoardController
+		FileUploadUtil
+		FileRename 
+	
+Git
+	branch 생성 
+	
+	commit
+
+게시판 UPDATE
+	비즈니스 
+		BoardVO
+		BoardController
+		BoardService
+		BoardServiceImpl
+		BoardDAO
+		BoardDAOImpl
+	DB
+		mybatis-config.xml
+		board.xml
+	view
+
+게시판 DELETE : ajax로 처리 
+	비즈니스 
+		BoardVO
+		BoardController
+		BoardService
+		BoardServiceImpl
+		BoardDAO
+		BoardDAOImpl
+	DB
+		mybatis-config.xml
+		board.xml
+	view 
+
+
+
+
+
+<06.02> 
+U,D 디버깅
+	게시판 UPDATE
+		비즈니스 
+			BoardVO
+			BoardController
+			BoardService
+			BoardServiceImpl
+			BoardDAO
+			BoardDAOImpl
+		DB
+			mybatis-config.xml
+			board.xml
+		view
+
+	게시판 DELETE : ajax로 처리 
+		비즈니스 
+			BoardVO
+			BoardController
+			BoardService
+			BoardServiceImpl
+			BoardDAO
+			BoardDAOImpl
+		DB
+			mybatis-config.xml
+			board.xml
+		view 
+			boardDebugForm.jsp
+
+좋아요 토이 프로젝트
+	좋아요 
+		좋아요 테이블 생성 
+			FK 지정을 위해 
+			게시판 + 회원 테이블 생성 
+				FK 설정
+				cascade 설정
+		
+		하트 이미지 
+			
+		view 
+			boardDebugForm.jsp
+			
+		비즈니스
+			채번
+				ChabunDAO
+				ChabunDAOImpl
+				ChabunService
+				ChabunServiceImpl
+				chabun.xml
+			메소드 추가
+				BoardVO : 좋아요 관련 변수 추가 
+				BoardController
+				BoardService
+				BoardServiceImpl
+				BoardDAO
+				BoardDAOImpl
+				
+					필요한 메소드	
+						좋아요 수 출력 : boardLikeSelect : selectAll와 합치기
+						사용자가 해당 게시글에 좋아요를 눌렀는지 확인 : boardLikeCheck
+						
+						처음으로 좋아요 눌렀을 때, 좋아요 테이블 인서트 : boardLikeInsert
+						BOARD 테이블의 B_LIKE +1 업데이트 : boardLikePlus
+						
+						취소했다가 다시 좋아요 눌렀을 때, 좋아요 테이블 업데이트 : boardLikeUpdate
+						BOARD 테이블의 B_LIKE +1 업데이트 : boardLikePlus
+						
+						좋아요 취소하면, 좋아요 테이블 업데이트 : boardLikeUpdate
+						BOARD 테이블의 B_LIKE -1업데이트 : boardLikeMinus
+						+if(likeCheck.size() == 0) {
+							model.addAttribute("likeCheck", 0);
+						 }else {
+							model.addAttribute("likeCheck", 1);
+						 } ==> 하트 이미지 변경 항상 해줘야 함. 
+			
+		DB
+			mybatis-config.xml
+			board.xml
+
+	좋아요 
+		하트 클릭 유무에 따른 이미지 변경 
+		하트 클립 유무에 따른 누적정보 보여주기 
+		
+
+	
+
+
+<06.03,04> ==> 쿼리문 확인 후, 필요 메소드 Service,DAO에 추가 -> Controller 추가 -> View 추가 
+좋아요 토이 프로젝트
+	좋아요 
+		좋아요 테이블 생성 
+			FK 지정을 위해 
+			게시판 + 회원 테이블 생성 
+				FK 설정
+				cascade 설정
+		
+		하트 이미지 
+			
+		view 
+			boardDebugForm.jsp 
+			
+		비즈니스
+			채번
+				ChabunDAO
+				ChabunDAOImpl
+				ChabunService
+				ChabunServiceImpl
+				chabun.xml
+			메소드 추가
+				BoardVO : 좋아요 관련 변수 추가 
+				BoardController 
+				BoardService
+				BoardServiceImpl
+				BoardDAO
+				BoardDAOImpl
+				
+					필요한 메소드	
+						좋아요 수 출력 : boardLikeSelect : selectAll와 합치기
+						사용자가 해당 게시글에 좋아요를 눌렀는지 확인 : boardLikeCheck
+						
+						처음으로 좋아요 눌렀을 때, 좋아요 테이블 인서트 : boardLikeInsert
+						BOARD 테이블의 B_LIKE +1 업데이트 : boardLikePlus
+						
+						취소했다가 다시 좋아요 눌렀을 때, 좋아요 테이블 업데이트 : boardLikeUpdate
+						BOARD 테이블의 B_LIKE +1 업데이트 : boardLikePlus
+						
+						좋아요 취소하면, 좋아요 테이블 업데이트 : boardLikeUpdate
+						BOARD 테이블의 B_LIKE -1업데이트 : boardLikeMinus
+						+if(likeCheck.size() == 0) {
+							model.addAttribute("likeCheck", 0);
+						 }else {
+							model.addAttribute("likeCheck", 1);
+						 } ==> 하트 이미지 변경 항상 해줘야 함. 
+			
+		DB
+			mybatis-config.xml
+			board.xml
+			
+	
