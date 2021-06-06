@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OffRegister">
+
+    //배경
+
+    <ImageView
+        android:id="@+id/off_reg_top"
+        android:layout_width="0dp"
+        android:layout_height="156px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/off_in" />
+
+    //나가기 버튼
+    <ImageButton
+        android:id="@+id/exit"
+        android:layout_width="162px"
+        android:layout_height="84px"
+        android:layout_marginTop="36px"
+        android:layout_marginRight="60px"
+        android:background="@drawable/exit"
+        android:onClick="onButtonExitClicked"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_top"
+        app:layout_constraintTop_toTopOf="@+id/off_reg_top" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="156px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            //배경
+            <ImageView
+                android:id="@+id/off_reg_box"
+                android:layout_width="970px"
+                android:layout_height="1654px"
+                android:layout_marginLeft="60px"
+                android:layout_marginTop="60px"
+                android:layout_marginRight="50px"
+                android:layout_marginBottom="50px"
+                android:background="@drawable/off_inmod_box2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            // 저장 버튼
+
+            <ImageButton
+                android:id="@+id/save"
+                android:layout_width="396px"
+                android:layout_height="77px"
+                android:layout_marginBottom="60px"
+                android:background="@drawable/save"
+                app:layout_constraintBottom_toBottomOf="@+id/off_reg_box"
+                app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+                app:layout_constraintStart_toStartOf="@+id/off_reg_box" />
+
+
+            //등록 작성 부분
+            //추가한 사진 보이기
+
+            <ImageView
+                android:id="@+id/insert_pic"
+                android:layout_width="898px"
+                android:layout_height="444px"
+                android:layout_marginLeft="36px"
+                android:layout_marginTop="36px"
+                android:layout_marginRight="36px"
+                app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+                app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+                app:layout_constraintTop_toTopOf="@+id/off_reg_box"
+                android:background="@drawable/transparent" />
+
+            <Button
+                android:id="@+id/off_img_load_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사진추가"
+                app:layout_constraintBottom_toBottomOf="@+id/insert_pic"
+                app:layout_constraintEnd_toEndOf="@+id/insert_pic"
+                app:layout_constraintStart_toStartOf="@+id/insert_pic"
+                app:layout_constraintTop_toTopOf="@+id/insert_pic" />
+
+            <Spinner
+                android:id="@+id/off_category_spinner"
+                android:layout_width="714px"
+                android:layout_height="70px"
+                android:layout_marginLeft="210px"
+                android:layout_marginTop="40px"
+                android:layout_marginRight="36px"
+                app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+                app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+                app:layout_constraintTop_toBottomOf="@+id/insert_pic" />
+
+    <EditText
+        android:id="@+id/off_name_editText"
+        android:layout_width="784px"
+        android:layout_height="70px"
+        android:layout_marginTop="38px"
+        android:layout_marginLeft="140px"
+        android:layout_marginRight="36px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="이름"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/off_category_spinner" />
+
+    <EditText
+        android:id="@+id/off_hastag_editText"
+        android:layout_width="714px"
+        android:layout_height="70px"
+        android:layout_marginLeft="210px"
+        android:layout_marginRight="36px"
+        android:layout_marginTop="38px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="해시태그"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/off_name_editText" />
+
+    <EditText
+        android:id="@+id/off_explain_editText"
+        android:layout_width="714px"
+        android:layout_height="70px"
+        android:layout_marginLeft="210px"
+        android:layout_marginRight="36px"
+        android:layout_marginTop="38px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="한줄설명"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/off_hastag_editText" />
+
+    <EditText
+        android:id="@+id/off_tel_editText"
+        android:layout_width="784px"
+        android:layout_height="70px"
+        android:layout_marginTop="38px"
+        android:layout_marginLeft="140px"
+        android:layout_marginRight="36px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="전화번호"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/off_explain_editText" />
+
+    <EditText
+        android:id="@+id/off_addr_editText"
+        android:layout_width="784px"
+        android:layout_height="70px"
+        android:layout_marginTop="38px"
+        android:layout_marginLeft="140px"
+        android:layout_marginRight="36px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="주소"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/off_tel_editText" />
+
+    <EditText
+        android:id="@+id/off_time_editText"
+        android:layout_width="714px"
+        android:layout_height="70px"
+        android:layout_marginLeft="210px"
+        android:layout_marginRight="36px"
+        android:layout_marginTop="38px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="영업시간"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/off_addr_editText" />
+
+    <EditText
+        android:id="@+id/off_snspage_editText"
+        android:layout_width="620px"
+        android:layout_height="70px"
+        android:layout_marginTop="38px"
+        android:layout_marginLeft="310px"
+        android:layout_marginRight="36px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="sns 및 페이지"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/off_time_editText" />
+
+    <EditText
+        android:id="@+id/off_reserve_editText"
+        android:layout_width="620px"
+        android:layout_height="70px"
+        android:layout_marginTop="38px"
+        android:layout_marginLeft="310px"
+        android:layout_marginRight="36px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="예약하기 링크"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/off_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/off_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/off_snspage_editText" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

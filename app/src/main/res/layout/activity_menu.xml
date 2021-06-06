@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_menu"
+    android:layout_width="840px"
+    android:layout_height="1920px"
+    android:background="@drawable/menu_bg"
+    android:layout_gravity="end"
+    tools:context=".Menu">
+
+    <ImageView
+        android:id="@+id/menu_bg"
+        android:layout_width="840px"
+        android:layout_height="1920px"
+        android:background="@drawable/menu_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/menu_exit"
+        android:layout_width="86px"
+        android:layout_height="86px"
+        android:layout_marginTop="50px"
+        android:layout_marginRight="50px"
+        android:background="@drawable/menu_exit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/menu_1anni"
+        android:layout_width="266px"
+        android:layout_height="82px"
+        android:layout_marginLeft="70px"
+        android:layout_marginTop="373px"
+        android:background="@drawable/menu_1anni"
+        android:onClick="onButtonAnniClicked"
+        app:layout_constraintStart_toStartOf="@+id/menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+    <ImageButton
+        android:id="@+id/menu_2days"
+        android:layout_width="266px"
+        android:layout_height="82px"
+        android:layout_marginLeft="70px"
+        android:layout_marginTop="475px"
+        android:background="@drawable/menu_2days"
+        android:onClick="onButtonDaysClicked"
+        app:layout_constraintStart_toStartOf="@+id/menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+    <ImageButton
+        android:id="@+id/menu_3money"
+        android:layout_width="266px"
+        android:layout_height="82px"
+        android:layout_marginLeft="70px"
+        android:layout_marginTop="578px"
+        android:background="@drawable/menu_3money"
+        android:onClick="onButtonMoneyClicked"
+        app:layout_constraintStart_toStartOf="@+id/menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+
+    <ImageButton
+        android:id="@+id/menu_4flower"
+        android:layout_width="266px"
+        android:layout_height="82px"
+        android:layout_marginLeft="70px"
+        android:layout_marginTop="844px"
+        android:background="@drawable/menu_4flower"
+        android:onClick="onButtonFlowerClicked"
+        app:layout_constraintStart_toStartOf="@+id/menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+
+    <ImageButton
+        android:id="@+id/menu_5cake"
+        android:layout_width="266px"
+        android:layout_height="82px"
+        android:layout_marginLeft="70px"
+        android:layout_marginTop="945px"
+        android:background="@drawable/menu_5cake"
+        android:onClick="onButtonCakeClicked"
+        app:layout_constraintStart_toStartOf="@+id/menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+
+    <ImageButton
+        android:id="@+id/menu_6couple"
+        android:layout_width="266px"
+        android:layout_height="82px"
+        android:layout_marginLeft="70px"
+        android:layout_marginTop="1047px"
+        android:background="@drawable/menu_6couple"
+        android:onClick="onButtonCoupleClicked"
+        app:layout_constraintStart_toStartOf="@+id/menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+
+    <ImageButton
+        android:id="@+id/menu_likepage"
+        android:layout_width="266px"
+        android:layout_height="82px"
+        android:layout_marginLeft="70px"
+        android:layout_marginTop="1318px"
+        android:background="@drawable/menu_7all"
+        android:onClick="onButtonLikeClicked"
+        app:layout_constraintStart_toStartOf="@+id/menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+
+    <ImageButton
+        android:id="@+id/menu_reviewboard"
+        android:layout_width="266px"
+        android:layout_height="82px"
+        android:layout_marginLeft="70px"
+        android:layout_marginTop="1420px"
+        android:background="@drawable/menu_8review"
+        android:onClick="onButtonReviewmainClicked"
+        app:layout_constraintStart_toStartOf="@+id/menu_bg"
+        app:layout_constraintTop_toTopOf="@+id/menu_bg" />
+
+
+    //등록하기 화면으로 이동하는 버튼
+
+    <ImageButton
+        android:id="@+id/on_register"
+        android:layout_width="280px"
+        android:layout_height="142px"
+        android:layout_marginBottom="100px"
+        android:background="@drawable/menu_9on"
+        android:onClick="onButtonOnregisterClicked"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/off_register"
+        android:layout_width="280px"
+        android:layout_height="142px"
+        android:layout_marginBottom="100px"
+        android:background="@drawable/menu_10off"
+        android:onClick="onButtonOffregisterClicked"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/won_register"
+        app:layout_constraintStart_toEndOf="@+id/on_register" />
+
+    <ImageButton
+        android:id="@+id/won_register"
+        android:layout_width="280px"
+        android:layout_height="142px"
+        android:layout_marginBottom="100px"
+        android:background="@drawable/menu_11won"
+        android:onClick="onButtonWonregisterClicked"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

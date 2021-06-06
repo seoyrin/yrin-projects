@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="on_category_spinner">
+        <item>기념일</item>
+        <item>days</item>
+        <item>꽃</item>
+        <item>케이크</item>
+        <item>커플용품</item>
+    </string-array>
+
+    <string-array name="off_category_spinner">
+        <item>기념일</item>
+        <item>days</item>
+        <item>꽃</item>
+        <item>케이크</item>
+        <item>커플용품</item>
+    </string-array>
+
+    <string-array name="won_category_spinner">
+        <item>5000</item>
+        <item>10000</item>
+    </string-array>
+</resources>
