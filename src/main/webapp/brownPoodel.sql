@@ -1,7 +1,13 @@
+-- ★DB에서 데이터 변경했을 경우, COMMIT 하기★
 select * from board;
-SELECT * FROM HEART;
+SELECT * FROM HEART order by 1;
 select * from member;
 select * from rboard;
+
+DELETE FROM BOARD 
+WHERE B_NUM = 'B0014';
+
+COMMIT;
 
 --●게시판 : BOARD●--
 DESC BOARD;
@@ -156,6 +162,17 @@ INSERT INTO MEMBER
 	    			 'pw_a', 'main_a', 
 	    			 'name_a', 'nickname_a',
 	    			 'address_a');	
+                     
+INSERT INTO MEMBER
+					(M_NUM, M_ID, 
+					 M_PW, M_EMAIL, 
+					 M_NAME, M_NICK, 
+					 M_ADDR)
+	    values
+	    			('M0003', 'id_b', 
+	    			 'pw_b', 'main_b', 
+	    			 'name_b', 'nickname_b',
+	    			 'address_b');	
 
 commit;
 select * from member;                 

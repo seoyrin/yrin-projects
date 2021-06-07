@@ -21,5 +21,7 @@
 	<br>
 	<a href="/boardLikeSelect.bp"> Update, Delete, 좋아요♡->♥ 디버깅</a>
 	
+	<br>
+	<a href="/boardUpdateForm.bp"> 게시판 글 수정하기 </a>
 </body>
 </html>

@@ -67,6 +67,8 @@
 					b_num : $("#b_num").val()
 			};
 			
+			// alert("dataParam >>> : " + dataParam); // => dataParam >>> : [object Object]
+			
 			$.ajax({
 				url : likeclickURL,
 				type : reqType,
@@ -77,13 +79,13 @@
 			
 			function whenSuccess(resData) {
 				if (resData.resultCheck == 1) {
-					$("#like_img").attr("src", "/resources/img/boardimg/heart_y.png"); //=======> 이부분은 필요한가???????????
+					//$("#like_img").attr("src", "/resources/img/boardimg/heart_y.png"); //=======> 이부분은 필요한가??????????? ■
 					$("#b_like").empty();
 					// $("#b_like").append(resData.b_like);
 					$("#b_like").attr("value", resData.b_like);
 					
 				}else if (resData.resultCheck == 0) {
-					$("#like_img").attr("src", "/resources/img/boardimg/heart_n.png");
+					//$("#like_img").attr("src", "/resources/img/boardimg/heart_n.png"); //■ 
 					$("#b_like").empty();
 					// $("#b_like").append(resData.b_like);
 					$("#b_like").attr("value", resData.b_like);
@@ -92,7 +94,7 @@
 					alert("resData에러!!");
 				};
 				// location.href="boardLikeSelect.bp";
-				// location.reload(); // 새로고침
+				location.reload(); // 새로고침 : 안해도됨 
 			}
 			function whenError(e) {
 				alert("error e >>> : " + e.responseText);

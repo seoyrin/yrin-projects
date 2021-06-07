@@ -95,7 +95,10 @@ public class BoardController {
 	}
 	
 	// ●게시판 글수정 페이지로 이동
-	
+	@RequestMapping(value = "boardUpdateForm", method=RequestMethod.GET)
+	public String boardUpdateForm() {
+		return "board/boardUpdateForm";
+	}
 	
 	// ●게시판 글수정
 	@RequestMapping(value = "boardUpdate", method = RequestMethod.POST)
@@ -164,9 +167,9 @@ public class BoardController {
 				System.out.println("BoardController boardLikeSelect likeCheck.size() >>> : " + likeCheck.size());
 				
 				if(likeCheck.size() == 0 || likeCheck.get(0).getLike_deleteyn().equals("N")) { // 좋아요 여부 확인 : 좋아요 테이블에서 
-					model.addAttribute("likeCheck", 0);
+					model.addAttribute("likeCheck", 0);	// 좋아요를 누르지 않은 경우 
 				}else {
-					model.addAttribute("likeCheck", 1);
+					model.addAttribute("likeCheck", 1);	// 좋아요를 누른 경우 
 				}
 				return "board/boardDebugForm";
 			}
@@ -180,7 +183,7 @@ public class BoardController {
 		public Map<String,Object> boardLikeCheck(BoardVO bvo) {
 			logger.info("BoardController boardLikeCheck 함수 진입 >>> :");
 			
-			int resultCheck = 1; // -> 1이면 ♥ / 0이면 ♡  /  -1이면 에러 
+			int resultCheck = 1; // -> 1이면 ♥ / 0이면 ♡  /  -1이면 에러  
 			Map<String, Object> resultMap = new HashMap<>();
 			
 			// bvo.setB_num("B0003");// 글번호 임의로 세팅★★★ ?? view에서 받아오기 ?
@@ -243,8 +246,8 @@ public class BoardController {
 				resultCheck = -1; // -> -1이면 error
 			}
 			
-			System.out.println("BoardController boardLikeCheck resultCheck >>> : " + resultCheck);
-			resultMap.put("resultCheck", resultCheck);
+			System.out.println("BoardController boardLikeCheck resultCheck >>> : " + resultCheck); 
+			resultMap.put("resultCheck", resultCheck); 
 			
 			return resultMap; // 1:♥, 0:♡, -1:에러   /  b_like 정보가 들어있는 map을 return 
 		}
