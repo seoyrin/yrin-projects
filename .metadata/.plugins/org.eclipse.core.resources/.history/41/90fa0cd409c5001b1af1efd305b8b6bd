@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.brownpoodle.board.dao.BoardDAO">
+
+<!-- ●검색조회 : select● -->
+
+<!-- ●전체조회 : selectAll● -->
+	<select id="boardSelectAll" resultType="boardVO">
+		SELECT * FROM BOARD
+	</select>
+
+<!-- ●등록 : insert● -->
+	<insert id="boardInsert" parameterType="boardVO">
+		INSERT INTO BOARD
+					(B_NUM, B_SUBJECT, 
+					 B_NAME, B_CONTENT, 
+					 B_FILE, B_HATE, 
+					 B_LIKE, B_DELETEYN, 
+					 B_INSERTDATE, B_UPDATEDATE)
+	    values
+	    			(#{b_num}, #{b_subject}, 
+	    			 #{b_name}, #{b_content}, 
+	    			 #{b_file}, '0',
+	    			 '0', 'Y', 
+	    			 SYSDATE, SYSDATE)	
+	</insert>
+
+<!-- ●수정 : update● -->
+	<update id="boardUpdate" parameterType="boardVO">
+		UPDATE BOARD
+		SET B_SUBJECT = #{b_subject}
+		   ,B_CONTENT = #{b_content}
+		   ,B_UPDATEDATE = SYSDATE
+		WHERE B_NUM = #{b_num}
+		AND B_DELETEYN = 'Y'
+	</update>
+
+<!-- ●삭제 : delete● -->
+	<update id="boardDelete" parameterType="boardVO">
+		UPDATE BOARD
+		SET
+				B_DELETEYN = 'N'
+		   	   ,B_UPDATEDATE = SYSDATE
+		WHERE   B_NUM = #{b_num}
+		AND     B_DELETEYN = 'Y'
+	</update>
+
+<!-- =======================좋아요====================== -->
+<!-- 좋아요 수 select : selectAll 쿼리문 -->
+	<select id="boardLikeSelect" parameterType="boardVO" resultType="boardVO">
+		SELECT A.B_LIKE B_LIKE
+		FROM BOARD A
+		WHERE A.B_NUM = #{b_num}
+	</select>
+	
+<!-- 좋아요 눌렀는지 여부 확인 -->
+	<select id="boardLikeCheck" parameterType="boardVO" resultType="boardVO">
+		SELECT LIKE_DELETEYN
+		FROM HEART
+		WHERE B_NUM = #{b_num} AND M_NUM= #{m_num}
+	</select>
+	
+<!-- 좋아요 테이블 INSERT : boardLikeInsert : LIKE_DELETEYN = 'Y'-->
+	<insert id="boardLikeInsert" parameterType="boardVO">
+		INSERT INTO HEART
+					(LIKE_NUM, B_NUM, 
+					 M_NUM, LIKE_DELETEYN)
+	    values
+	    			(#{like_num}, #{b_num}, 
+	    			 #{m_num}, 'Y')	
+	</insert>
+
+<!-- BOARD 테이블의 B_LIKE +1 업데이트 : boardLikePlus -->
+	<update id="boardLikePlus" parameterType="boardVO">
+		UPDATE BOARD
+		SET B_LIKE =B_LIKE+1
+		WHERE B_NUM = #{b_num}
+		AND B_DELETEYN = 'Y'
+	</update>
+
+<!-- 좋아요 테이블 업데이트 : boardLikeUpdate
+		동적 sql 사용 
+			id값이 like_img 인 value값이 0일 때, 1일 때
+				0일때는 좋아요 X : LIKE_DELETEYN = 'Y'로 변경
+				1일때는 좋아요 O : LIKE_DELETEYN = 'N'로 변경
+-->
+	<update id="boardLikeUpdate" parameterType="boardVO">
+		UPDATE HEART
+			<set>
+				<choose>
+					<when test="like_img == 0">
+						LIKE_DELETEYN = 'Y',
+					</when>
+					<otherwise> <!--  test="like_img == 1" -->
+						LIKE_DELETEYN = 'N'
+					</otherwise>
+				</choose>
+			</set>
+		WHERE B_NUM = #{b_num} AND M_NUM = #{m_num}
+	</update>
+
+<!-- BOARD 테이블의 B_LIKE -1 업데이트 : boardLikeMinus -->
+	<update id="boardLikeMinus" parameterType="boardVO">
+		UPDATE BOARD
+		SET B_LIKE =B_LIKE-1
+		WHERE B_NUM = #{b_num}
+		AND B_DELETEYN = 'Y'
+	</update>
+
+</mapper>

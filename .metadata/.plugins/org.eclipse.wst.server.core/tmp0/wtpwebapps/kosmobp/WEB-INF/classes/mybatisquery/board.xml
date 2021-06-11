@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.brownpoodle.board.dao.BoardDAO">
+
+	<!-- 전체 조회 + 페이징 + 검색 -->
+	<select id="boardSelectAll" resultType="boardVO">
+	
+	SELECT * FROM (
+			SELECT
+					B_NUM,
+					B_SUBJECT,
+					B_NAME,
+					B_CONTENT,
+					B_FILE,
+					B_HATE,
+					B_LIKE,
+					B_DELETEYN,
+					B_INSERTDATE,
+					B_UPDATEDATE,
+					CEIL(ROW_NUMBER() OVER(ORDER BY B_NUM DESC) / #{pagesize}) CURPAGE,
+					COUNT(B_NUM) OVER() AS TOTALCOUNT
+			FROM
+				(
+					SELECT 
+							A.B_NUM				B_NUM,
+							A.B_SUBJECT			B_SUBJECT,
+							A.B_NAME			B_NAME,
+							A.B_CONTENT			B_CONTENT,
+							A.B_FILE			B_FILE,
+							A.B_HATE			B_HATE,
+							A.B_LIKE			B_LIKE,
+							A.B_DELETEYN		B_DELETEYN,
+							TO_CHAR(A.B_INSERTDATE, 'YYYY-MM-DD')	B_INSERTDATE,
+							TO_CHAR(A.B_UPDATEDATE, 'YYYY-MM-DD')	B_UPDATEDATE	
+					FROM
+							BOARD	A
+					WHERE	B_DELETEYN = 'Y'
+					<if test="startdate != null and startdate != '' and enddate != null and enddate != ''">
+						<![CDATA[AND TO_CHAR(A.B_INSERTDATE, 'YYYY-MM-DD') >= TO_CHAR(TO_DATE(#{startdate, jdbcType=VARCHAR}), 'YYYY-MM-DD')]]>
+						<![CDATA[AND TO_CHAR(A.B_INSERTDATE, 'YYYY-MM-DD') <= TO_CHAR(TO_DATE(#{enddate, jdbcType=VARCHAR}), 'YYYY-MM-DD')]]>
+					</if>
+					<if test="keyfilter == 'key1'">
+						<![CDATA[AND A.B_SUBJECT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+					</if>
+					<if test="keyfilter == 'key2'">
+						<![CDATA[AND A.B_CONTENT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+					</if>
+					<if test="keyfilter == 'key3'">
+						<![CDATA[AND A.B_SUBJECT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+						<![CDATA[OR A.B_CONTENT LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+					</if>
+					<if test="keyfilter == 'key4'">
+						<![CDATA[AND A.B_NAME LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+					</if>
+					<if test="keyfilter == 'key5'">
+						<![CDATA[AND A.B_NUM LIKE '%' || #{keyword, jdbcType=VARCHAR} || '%']]>
+					</if>
+					ORDER BY B_NUM DESC
+				)
+		)
+		WHERE CURPAGE = #{curpage}
+	</select>
+	
+
+	<!-- 상세 조회 -->	
+	<select id="boardSelect" resultType="boardVO">
+		SELECT
+		        A.B_NUM			B_NUM,
+		        A.B_SUBJECT		B_SUBJECT,
+		        A.B_NAME		B_NAME,
+		        A.B_CONTENT		B_CONTENT,
+		        A.B_FILE		B_FILE,
+		        A.B_HATE		B_HATE,
+		        A.B_LIKE		B_LIKE,
+		        A.B_HATE		B_HATE,
+		        A.B_DELETEYN		B_DELETEYN,
+		        TO_CHAR(A.B_INSERTDATE, 'YYYY-MM-DD')	B_INSERTDATE,
+		        TO_CHAR(A.B_UPDATEDATE, 'YYYY-MM-DD')	B_UPDATEDATE
+		FROM
+		        BOARD	A
+		WHERE
+		        B_DELETEYN = 'Y'
+		AND		B_NUM = #{b_num}
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

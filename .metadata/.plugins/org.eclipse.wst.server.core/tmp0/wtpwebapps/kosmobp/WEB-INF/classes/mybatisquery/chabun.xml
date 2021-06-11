@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+			
+<mapper namespace="com.brownpoodle.chabun.dao.ChabunDAO">
+
+	<select id="getBoardChabun" resultType="boardVO">
+		SELECT NVL(MAX(SUBSTR(A.B_NUM, -4)), 0) + 1 B_NUM FROM BOARD A
+	</select>
+	
+	<!-- 
+	<select id="getRboardChabun" resultType="rboardVO">
+		SELECT NVL(MAX(SUBSTR(A.RB_NUM, -4)), 0) + 1 RB_NUM FROM RBOARD A
+	</select>
+	 -->
+
+</mapper>	

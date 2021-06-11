@@ -1,0 +1,9 @@
+INDEX VERSION 1.4+C:\00.KOSMO78\30.web\brownPoodle_work\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3061441466.index
+616816053.index
+3666081967.index
+72119985.index
+3842192640.index
+2306971460.index
+1143405018.index
+75447204.index
