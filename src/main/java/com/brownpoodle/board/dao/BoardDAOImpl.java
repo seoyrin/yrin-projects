@@ -43,7 +43,9 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public int boardUpdate(BoardVO bvo) {
 		// TODO Auto-generated method stub
+		System.out.println("위에");
 		logger.info("BoardDAOImpl boardUpdate 함수 진입 >>> :");
+		System.out.println("아래");
 		return (Integer)sqlSession.update("boardUpdate", bvo);
 	}
 
