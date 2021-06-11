@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -178,9 +180,9 @@ public class BoardController {
 		}
 		
 		// 좋아요 를 눌렀을 때 : ajax 통신 =======> 여기부터 !!!!!
-		@RequestMapping(value = "boardLikeCheck", method = RequestMethod.POST)
+		@RequestMapping(value = "boardLikeCheck", method = RequestMethod.POST) // ★수정수정 : POST -> GET
 		@ResponseBody
-		public Map<String,Object> boardLikeCheck(BoardVO bvo) {
+		public Map<String,Object> boardLikeCheck(BoardVO bvo) { 
 			logger.info("BoardController boardLikeCheck 함수 진입 >>> :");
 			
 			int resultCheck = 1; // -> 1이면 ♥ / 0이면 ♡  /  -1이면 에러  
@@ -202,7 +204,7 @@ public class BoardController {
 					// 좋아요 테이블에 insert : 좋아요 채번!!! + 회원번호랑 게시글번호 임의지정해서 INSERT
 					// String b_num = ChaebunUtils.getBoardChaebun(chabunService.getBoardChabun().getB_num());
 					String lnum = ChaebunUtils.getLikeChaebun(chabunService.getLikeChabun().getLike_num());
-					bvo.setLike_num(lnum);
+					bvo.setLike_num(lnum); // ★수정수정 
 					System.out.println("BoardController boardLikeCheck bvo.getLike_num() >>> : " + bvo.getLike_num());
 					
 					boardService.boardLikeInsert(bvo);

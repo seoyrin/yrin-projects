@@ -56,7 +56,8 @@
 		});
 		
 		
-		// ==========================좋아요 디버깅============================
+		// ==========================좋아요 디버깅1============================
+		// 동기를 하면 X -> ajax 동기 awake : https://blueshw.github.io/2018/02/27/async-await/
 		// 좋아요 버튼 눌렀을 때, ajax 처리
 		$(document).on("click", "#like_img", function(){
 			
@@ -73,6 +74,7 @@
 				url : likeclickURL,
 				type : reqType,
 				data : dataParam,
+				async : false,
 				success : whenSuccess,
 				error : whenError
 			});
@@ -94,12 +96,145 @@
 					alert("resData에러!!");
 				};
 				// location.href="boardLikeSelect.bp";
-				location.reload(); // 새로고침 : 안해도됨 
+				// location.reload(); // 새로고침 : 안해도됨 
 			}
 			function whenError(e) {
 				alert("error e >>> : " + e.responseText);
 			}
+		}); 
+		
+		
+		
+		// ==========================좋아요 디버깅2============================
+		/* $(document).on("click", "#like_img", function(){
+			 
+			$("#likeForm")
+            .attr({"action":"boardLikeCheck.bp",
+                    "method":"POST",
+                    "enctype":"application/x-www-from-urlencoded"
+                 })
+            .submit();
+			
+			//const resultCheck = asyncLike();
+			const data = asyncLike();
+			
+			alert('data.resultCheck >>> : ' + data.resultCheck);
+			alert('data.b_like >>> : ' + data.b_like);
+			
+			if (data.resultCheck == 1) {
+				// $("#like_img").attr("src", "/resources/img/boardimg/heart_y.png"); //=======> 이부분은 필요한가??????????? ■
+				$("#b_like").empty();
+				// $("#b_like").append(resData.b_like);
+				$("#b_like").attr("value", data.b_like);
+				
+			}else if (data.resultCheck == 0) {
+				// $("#like_img").attr("src", "/resources/img/boardimg/heart_n.png"); //■ 
+				$("#b_like").empty();
+				// $("#b_like").append(resData.b_like);
+				$("#b_like").attr("value", data.b_like);
+				
+			}else {
+				alert("resData에러!!");
+			};
 		});
+			
+		async function asyncLike() {
+			alert('asyncLike 함수 진입 시작 >>> : ');
+			const res = await fetch('boardLikeCheck.bp');
+			alert('asyncLike 함수 중간 >>> : ');
+			const data = await res.json();
+			alert('data >>> : ' + data);
+			const resultCheck = await data.resultCheck;
+			const b_like = await data.b_like;
+			alert('asyncLike 함수 끝 >>> : ');
+			
+			location.href="boardLikeSelect.bp";
+			return data;
+		}  */
+		
+		
+		
+		// ==========================좋아요 디버깅3============================
+			/* $(document).on("click", "#like_img", function(){
+			
+			let likeclickURL = "boardLikeCheck.bp";
+			let reqType ="POST";
+			let dataParam = {
+					m_num : $("#m_num").val(),
+					b_num : $("#b_num").val()
+			};
+			
+			asyncLike();
+			
+			// alert("dataParam >>> : " + dataParam); // => dataParam >>> : [object Object]
+			
+			function getData() {
+				//alert('getData() 함수 진입 >>> : ');
+				return  $.ajax({
+						url : likeclickURL,
+						type : reqType,
+						data : dataParam
+						//async:false
+						//success : whenSuccess,
+						//error : whenError
+					    });
+			}
+			
+			async function asyncLike() {
+				//alert('asyncLike() 함수 진입 >>> : ');
+				const res = await getData();
+				//await getData();
+				
+				if (res.resultCheck == 1) {
+					$("#like_img").attr("src", "/resources/img/boardimg/heart_y.png"); //=======> 이부분은 필요한가??????????? ■
+					$("#b_like").empty();
+					// $("#b_like").append(resData.b_like);
+					$("#b_like").attr("value", res.b_like);
+					
+				}else if (res.resultCheck == 0) {
+					$("#like_img").attr("src", "/resources/img/boardimg/heart_n.png"); //■ 
+					$("#b_like").empty();
+					// $("#b_like").append(resData.b_like);
+					$("#b_like").attr("value", res.b_like);
+					
+				}else {
+					alert("resData에러!!");
+				}; 
+				//location.reload(); // 새로고침 : 안해도됨 
+				//history.go(0);	
+			}
+			//location.reload(true);
+			
+			function whenSuccess(resData) {
+				if (resData.resultCheck == 1) {
+					//$("#like_img").attr("src", "/resources/img/boardimg/heart_y.png"); //=======> 이부분은 필요한가??????????? ■
+					$("#b_like").empty();
+					// $("#b_like").append(resData.b_like);
+					$("#b_like").attr("value", resData.b_like);
+					
+				}else if (resData.resultCheck == 0) {
+					//$("#like_img").attr("src", "/resources/img/boardimg/heart_n.png"); //■ 
+					$("#b_like").empty();
+					// $("#b_like").append(resData.b_like);
+					$("#b_like").attr("value", resData.b_like);
+					
+				}else {
+					alert("resData에러!!");
+				};
+				// location.href="boardLikeSelect.bp";
+				//location.reload(); // 새로고침 : 안해도됨 
+			}
+			function whenError(e) {
+				alert("error e >>> : " + e.responseText);
+			} 
+		});   */
+		
+		
+		// ==========================좋아요 디버깅4============================
+		/* const getAjax = function(url) {
+			return new Promise()
+		}
+		 */
 		
 	});
 </script>
