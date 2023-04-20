@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
+<fullyQualifiedTypeName name="com.brownpoodle.board.controller.BoardController"/>
+<fullyQualifiedTypeName name="jdk.nashorn.internal.ir.RuntimeNode.Request"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="com.brownpoodle.board.service.BoardServiceImpl"/>
+<fullyQualifiedTypeName name="com.brownpoodle.board.dao.BoardDAO"/>
+<fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+<fullyQualifiedTypeName name="com.brownpoodle.board.dao.BoardDAOImpl"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="org.mybatis.spring.SqlSessionTemplate"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="com.brownpoodle.board.service.BoardService"/>
+<fullyQualifiedTypeName name="com.brownpoodle.chabun.service.ChabunService"/>
+<fullyQualifiedTypeName name="com.brownpoodle.common.FileUploadUtil"/>
+<fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartHttpServletRequest"/>
+<fullyQualifiedTypeName name="com.brownpoodle.common.FileRename"/>
+<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+<fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="com.brownpoodle.board.vo.BoardVO"/>
+<fullyQualifiedTypeName name="com.brownpoodle.common.ChaebunUtils"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+</qualifiedTypeNameHistroy>
