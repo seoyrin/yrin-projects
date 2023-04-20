@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_review_update_pw"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Review_Update_PW">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+    //Top 구성
+    <ImageView
+        android:id="@+id/ri_top"
+        android:layout_width="0dp"
+        android:layout_height="166px"
+        android:background="@drawable/review_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ri_menu"
+            android:layout_width="74px"
+            android:layout_height="76px"
+            android:layout_marginTop="39px"
+            android:layout_marginRight="60px"
+            android:background="@drawable/menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ri_back"
+            android:layout_width="74px"
+            android:layout_height="76px"
+            android:layout_marginLeft="60px"
+            android:layout_marginTop="39px"
+            android:background="@drawable/back"
+            android:onClick="onButtonBackClicked"
+            app:layout_constraintStart_toStartOf="@+id/ri_top"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    //Middle
+
+    <ImageView
+        android:id="@+id/ri_q"
+        android:layout_width="970px"
+        android:layout_height="762px"
+        android:layout_marginLeft="60px"
+        android:layout_marginTop="370px"
+        android:layout_marginRight="50px"
+        android:background="@drawable/ri_q2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ri_top" />
+
+    <EditText
+        android:id="@+id/ri_insert_pw"
+        android:layout_width="644px"
+        android:layout_height="85px"
+        android:layout_marginLeft="75px"
+        android:layout_marginBottom="192px"
+        android:background="@null"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/ri_q"
+        app:layout_constraintStart_toStartOf="@+id/ri_q" />
+
+    <ImageButton
+        android:id="@+id/ri_ok"
+        android:layout_width="130px"
+        android:layout_height="85px"
+        android:layout_marginRight="85px"
+        android:layout_marginBottom="195px"
+        android:background="@drawable/ri_ok"
+        app:layout_constraintBottom_toBottomOf="@+id/ri_q"
+        app:layout_constraintEnd_toEndOf="@+id/ri_q" />
+
+    // Bottom
+
+    <ImageButton
+        android:id="@+id/bottom1_home"
+        android:layout_width="360px"
+        android:layout_height="172px"
+        android:background="@drawable/bottom1"
+        android:onClick="onButtonHomeClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/bottom2_like"
+        android:layout_width="360px"
+        android:layout_height="172px"
+        android:background="@drawable/bottom2"
+        android:onClick="onButtonLikeClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bottom3_review"
+        app:layout_constraintStart_toEndOf="@+id/bottom_1home_off_anni" />
+
+    <ImageButton
+        android:id="@+id/bottom3_review"
+        android:layout_width="360px"
+        android:layout_height="172px"
+        android:background="@drawable/bottom3"
+        android:onClick="onButtonReviewClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
+
+    <include layout="@layout/activity_menu"/>
+
+</android.support.v4.widget.DrawerLayout>

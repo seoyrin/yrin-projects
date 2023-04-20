@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WonRegister">
+
+    <ImageView
+        android:id="@+id/won_reg_top"
+        android:layout_width="0dp"
+        android:layout_height="156px"
+        android:background="@drawable/mn_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    //나가기 버튼
+    <ImageButton
+        android:id="@+id/won_reg_exit"
+        android:layout_width="162px"
+        android:layout_height="84px"
+        android:layout_marginTop="36px"
+        android:layout_marginRight="60px"
+        android:background="@drawable/exit"
+        android:onClick="onButtonExitClicked"
+        app:layout_constraintEnd_toEndOf="@+id/won_reg_top"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="156px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            //배경
+            <ImageView
+                android:id="@+id/won_reg_box"
+                android:layout_width="970px"
+                android:layout_height="1654px"
+                android:layout_marginLeft="60px"
+                android:layout_marginTop="60px"
+                android:layout_marginRight="50px"
+                android:layout_marginBottom="50px"
+                android:background="@drawable/mn_bg2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+     //선택 이미지 보여주기
+    <ImageView
+        android:id="@+id/won_reg_insertpic"
+        android:layout_width="888px"
+        android:layout_height="838px"
+        android:layout_marginTop="60px"
+        android:background="@drawable/transparent"
+        app:layout_constraintEnd_toEndOf="@+id/won_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/won_reg_box"
+        app:layout_constraintTop_toTopOf="@+id/won_reg_box" />
+
+            //저장하기 버튼
+            <ImageButton
+                android:id="@+id/won_reg_save"
+                android:layout_width="396px"
+                android:layout_height="77px"
+                android:layout_marginBottom="100px"
+                android:background="@drawable/save"
+                app:layout_constraintBottom_toBottomOf="@+id/won_reg_box"
+                app:layout_constraintEnd_toEndOf="@+id/won_reg_box"
+                app:layout_constraintStart_toStartOf="@+id/won_reg_box" />
+
+            //등록 작성 부분
+
+            <Button
+                android:id="@+id/won_img_load_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="사진추가"
+                app:layout_constraintBottom_toBottomOf="@+id/won_reg_insertpic"
+                app:layout_constraintEnd_toEndOf="@+id/won_reg_insertpic"
+                app:layout_constraintStart_toStartOf="@+id/won_reg_insertpic"
+                app:layout_constraintTop_toTopOf="@+id/won_reg_insertpic" />
+
+            <Spinner
+                android:id="@+id/won_category_spinner"
+                android:layout_width="714px"
+                android:layout_height="70px"
+                android:layout_marginLeft="210px"
+                android:layout_marginTop="48px"
+                android:layout_marginRight="36px"
+                app:layout_constraintEnd_toEndOf="@+id/won_reg_box"
+                app:layout_constraintStart_toStartOf="@+id/won_reg_box"
+                app:layout_constraintTop_toBottomOf="@+id/won_reg_insertpic" />
+
+    <EditText
+        android:id="@+id/won_name_editText"
+        android:layout_width="784px"
+        android:layout_height="70px"
+        android:layout_marginTop="48px"
+        android:layout_marginLeft="140px"
+        android:layout_marginRight="36px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="이름"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/won_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/won_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/won_category_spinner" />
+
+    <EditText
+        android:id="@+id/won_price_editText"
+        android:layout_width="784px"
+        android:layout_height="70px"
+        android:layout_marginTop="48px"
+        android:layout_marginLeft="140px"
+        android:layout_marginRight="36px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="가격"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/won_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/won_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/won_name_editText" />
+
+    <EditText
+        android:id="@+id/won_link_editText"
+        android:layout_width="784px"
+        android:layout_height="70px"
+        android:layout_marginTop="48px"
+        android:layout_marginLeft="140px"
+        android:layout_marginRight="36px"
+        android:background="@null"
+        android:ems="10"
+        android:hint="링크"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/won_reg_box"
+        app:layout_constraintStart_toStartOf="@+id/won_reg_box"
+        app:layout_constraintTop_toBottomOf="@+id/won_price_editText" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

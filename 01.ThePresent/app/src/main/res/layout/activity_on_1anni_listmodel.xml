@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="960px"
+        android:layout_height="352px"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/on_anni_imageButton"
+            android:layout_width="618px"
+            android:layout_height="342px"
+            android:layout_gravity="center"
+            android:background="@drawable/detail1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/on_anni_imageButton2"
+            android:layout_width="342px"
+            android:layout_height="342px"
+            android:background="@drawable/empty_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/on_anni_imageButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/TitleText"
+            android:layout_width="180dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:gravity="left"
+            android:text="글제목"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/on_anni_imageButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/DetailText"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20px"
+            android:gravity="left"
+            android:text="설명"
+            android:textColor="#696969"
+            android:textSize="12sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TitleText" />
+
+        <TextView
+            android:id="@+id/TagText"
+            android:layout_width="180dp"
+            android:layout_height="21dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="left"
+            android:text="#키워드 #키워드"
+            android:textColor="#696969"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/on_anni_imageButton"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="221dp" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="100dp" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

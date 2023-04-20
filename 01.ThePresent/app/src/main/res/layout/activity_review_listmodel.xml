@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    //review_listmodel
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="970px"
+        android:layout_height="334px"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/rm_detail1"
+            android:layout_width="636px"
+            android:layout_height="334px"
+            android:layout_gravity="center"
+            android:background="@drawable/rm_detail1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/rm_detail2"
+            android:layout_width="334px"
+            android:layout_height="334px"
+            android:background="@drawable/rm_detail2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rm_detail1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/TitleText"
+            android:layout_width="180dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="48px"
+            android:layout_marginTop="32px"
+            android:gravity="left"
+            android:text="후기제목"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="@+id/rm_detail1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/DetailText"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="48px"
+            android:layout_marginTop="15px"
+            android:gravity="left"
+            android:text="설명"
+            android:textColor="#696969"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/TitleText" />
+
+        <TextView
+            android:id="@+id/WriterText"
+            android:layout_width="70dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="48px"
+            android:layout_marginBottom="30px"
+            android:gravity="left"
+            android:text="작성자"
+            android:textColor="#696969"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/DateText"
+            android:layout_width="80dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="275px"
+            android:layout_marginBottom="30px"
+            android:gravity="left"
+            android:text="작성일"
+            android:textColor="#696969"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

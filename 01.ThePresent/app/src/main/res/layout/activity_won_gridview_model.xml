@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    //won_gridview_model
+
+    <ImageView
+        android:id="@+id/detail_pic"
+        android:layout_width="450px"
+        android:layout_height="450px"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5px"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10px"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/mn_detail1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/detail_text"
+        android:layout_width="460px"
+        android:layout_height="184px"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5px"
+        android:background="@drawable/mn_detail2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_pic"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+            android:id="@+id/won_Product"
+            android:layout_width="400px"
+            android:layout_height="24dp"
+            android:layout_marginTop="25px"
+            android:gravity="center"
+            android:text="상품명"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toEndOf="@+id/detail_text"
+            app:layout_constraintStart_toStartOf="@+id/detail_text"
+            app:layout_constraintTop_toTopOf="@+id/detail_text" />
+
+        <TextView
+            android:id="@+id/won_Price"
+            android:layout_width="93dp"
+            android:layout_height="20dp"
+            android:layout_marginBottom="35px"
+            android:gravity="center"
+            android:text="가격"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/detail_text"
+            app:layout_constraintEnd_toEndOf="@+id/detail_text"
+            app:layout_constraintStart_toStartOf="@+id/detail_text" />
+
+</android.support.constraint.ConstraintLayout>
